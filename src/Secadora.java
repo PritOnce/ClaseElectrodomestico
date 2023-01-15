@@ -23,11 +23,11 @@ public class Secadora extends Electrodomestico {
         return carga;
     }
 
-    public double precioFinal(){
+    public int precioFinal(){
          double preciofinal2 = super.precioFinal();
          if(carga>=30){
              preciofinal2+=50;
          }
-         return preciofinal2;
+         return (int) preciofinal2;
     }
 }

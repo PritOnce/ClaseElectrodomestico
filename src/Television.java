@@ -31,7 +31,7 @@ public Television(){
         return sintonizador;
     }
 
-    public double precioFinal(){
+    public int precioFinal(){
     double preciofinal3 = super.precioFinal();
     if(pulgadas >= 40){
         preciofinal3=0.3*super.precioFinal();
@@ -39,7 +39,7 @@ public Television(){
     if(!sintonizador){
         preciofinal3+=50;
     }
-        return preciofinal3;
+        return (int) preciofinal3;
     }
 
 }
