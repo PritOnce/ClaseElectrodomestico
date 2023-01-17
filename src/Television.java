@@ -1,11 +1,11 @@
 public class Television extends Electrodomestico{
-protected final int pulgadas_F=20;
-protected final boolean sintonizador_F=false;
+    protected final int pulgadas_F=20;
+    protected final boolean sintonizador_F=false;
 
-protected int pulgadas;
-protected boolean sintonizador;
+    protected int pulgadas;
+    protected boolean sintonizador = false;
 
-public Television(){
+    public Television(){
 
 }
     public Television(int precio_base,int peso, int pulgadas, boolean sintonizador){
@@ -31,15 +31,16 @@ public Television(){
         return sintonizador;
     }
 
-    public int precioFinal(){
+    public double precioFinal(){
     double preciofinal3 = super.precioFinal();
     if(pulgadas >= 40){
-        preciofinal3=0.3*super.precioFinal();
+        preciofinal3+=0.3*super.precioFinal();
+
     }
-    if(!sintonizador){
+    if(sintonizador){
         preciofinal3+=50;
     }
-        return (int) preciofinal3;
+        return preciofinal3;
     }
 
 }

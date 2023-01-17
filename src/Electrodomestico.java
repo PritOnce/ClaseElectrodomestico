@@ -22,8 +22,8 @@ protected int peso;
     }
 
     public Electrodomestico(int precio_base, String color, char consumo_energetico, int peso) {
-        comprobarColor(this.color);
-        comprobarConsumnoEnergetico(this.consumo_energetico);
+        comprobarColor(color);
+        comprobarConsumnoEnergetico(consumo_energetico);
         this.peso=peso;
         this.precio_base=precio_base;
 
@@ -45,28 +45,25 @@ protected int peso;
         return peso;
     }
 
-    private char comprobarConsumnoEnergetico(char consumo_energetico){
+    private void comprobarConsumnoEnergetico(char consumo_energetico){
         if(consumo_energetico>= 'A' && consumo_energetico<= 'F'){
             this.consumo_energetico=consumo_energetico;
         }else{
             this.consumo_energetico=consumo_energetico_F;
         }
 
-        return this.consumo_energetico;
     }
-    private String comprobarColor(String color){
+    private void comprobarColor(String color){
         String tipo_color [] = {"BLANCO", "NEGRO", "ROJO", "AZUL", "GRIS"};
         if(color.equals(tipo_color)){
             this.color=color;
         }else{
             this.color=color_F;
         }
-        System.out.println(this.color);
-        return this.color;
     }
 
-    public int precioFinal(){
-        int preciofinal=0;
+    public double precioFinal(){
+        double preciofinal=0;
         switch (consumo_energetico){
             case 'A': preciofinal=precio_base+100;
             break;
@@ -90,13 +87,13 @@ protected int peso;
         }
 
         if(peso>=0 && peso<=19){
-            preciofinal=preciofinal+10;
+            preciofinal+=10;
         } else if (peso>=20 && peso<=49) {
-            preciofinal=preciofinal+50;
+            preciofinal+=50;
         } else if (peso>=50 && peso<=79) {
-            preciofinal=preciofinal+80;
+            preciofinal+=80;
         }else {
-            preciofinal=preciofinal+100;
+            preciofinal+=100;
         }
         return preciofinal;
     }
