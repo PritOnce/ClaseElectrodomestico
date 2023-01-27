@@ -1,8 +1,8 @@
 public class Electrodomestico {
-protected final int precio_base_F=100;
-protected final String color_F="BLANCO";
-protected final char consumo_energetico_F='F';
-protected final int peso_F=5;
+protected static final int precio_base_F=100;
+protected static final String color_F="BLANCO";
+protected static final char consumo_energetico_F='F';
+protected static final int peso_F=5;
 
 protected int precio_base;
 protected String color;
@@ -55,7 +55,13 @@ protected int peso;
     }
     private void comprobarColor(String color){
         String tipo_color [] = {"BLANCO", "NEGRO", "ROJO", "AZUL", "GRIS"};
-        if(color.equals(tipo_color)){
+        boolean encontrado=false;
+        for(int i = 0;i<tipo_color.length && !encontrado;i++) {
+            if (tipo_color[i].equals(color)) {
+                encontrado=true;
+            }
+        }
+        if(encontrado){
             this.color=color;
         }else{
             this.color=color_F;
@@ -97,5 +103,16 @@ protected int peso;
         }
         return preciofinal;
     }
+
+    @Override
+    public String toString() {
+        return "Electrodomestico{" +
+                "precio_base=" + precio_base +
+                ", color='" + color + '\'' +
+                ", consumo_energetico=" + consumo_energetico +
+                ", peso=" + peso +
+                '}';
+    }
 }
+
 
